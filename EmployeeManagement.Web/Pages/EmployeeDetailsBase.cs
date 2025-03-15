@@ -1,25 +1,24 @@
 ﻿using EmployeeManagement.Web.Services;
 using EmployeeManagements.Models;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc.Razor.Internal;
-using System;
-using System.Collections;   
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Threading.Tasks;
 
 namespace EmployeeManagement.Web.Pages
 {
-    public class EmployeeListBase : ComponentBase
+    public class EmployeeDetailsBase : ComponentBase
     {
+        public Employee Employee { get; set; }
         [Inject]
         public IEmployeeService EmployeeService { get; set; }
-        public IEnumerable<Employee> Employees { get; set; }
+
+        [Parameter]
+        public string Id { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-          Employees = ( await EmployeeService.GetEmployees());
-           
+            Id = Id ?? "1";
+          Employee = await EmployeeService.GetEmployeeById(int.Parse(Id));
         }
+
     }
 }
