@@ -25,7 +25,7 @@ namespace EmployeeManagement.Web.Pages
         protected override async Task OnInitializedAsync()
         {
             Id = Id ?? "1";
-          Employee = await EmployeeService.GetEmployeeById(int.Parse(Id));
+          Employee = await EmployeeService.GetEmployees(int.Parse(Id));
         }
 
         protected async Task Button_Click()
@@ -35,13 +35,10 @@ namespace EmployeeManagement.Web.Pages
 
             FooterVisible = !FooterVisible;
             ButtonText = FooterVisible ? "Hide Footer" : "Show Footer";
-                
-            
-            
            
             await InvokeAsync(StateHasChanged); // Ensures UI update
         }
 
-
+        
     }
 }

@@ -16,7 +16,7 @@ namespace EmployeeManagement.Web.Services
             this.httpClient = httpClient;
         }
 
-        public async Task<Employee?> GetEmployeeById(int id)
+        public async Task<Employee?> GetEmployees(int id)
         {
             try
             {

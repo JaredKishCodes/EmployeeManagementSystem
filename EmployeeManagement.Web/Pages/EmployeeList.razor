@@ -17,7 +17,7 @@
 
 else
 {
-
+    <h3>Selected Employees Count : @SelectedEmployeesCount</h3>
     <input type="checkbox" id="showFooter" @bind = "ShowFooter"/>
     <label for="showFooter">Show Footer</label>
 
@@ -25,9 +25,11 @@ else
     <div class="card-deck">
         @foreach (var employee in Employees)
         {
-           <DisplayEmployee Employee = "employee" ShowFooter ="ShowFooter" ></DisplayEmployee>
+           <DisplayEmployee Employee = "employee" ShowFooter ="ShowFooter"  OnEmployeeSelection="EmployeeSelectionChanged"></DisplayEmployee>
         }
     </div>
+
+
 
 }
 

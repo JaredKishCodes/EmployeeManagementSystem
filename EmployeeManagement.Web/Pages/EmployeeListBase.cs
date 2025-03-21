@@ -20,8 +20,22 @@ namespace EmployeeManagement.Web.Pages
 
         protected override async Task OnInitializedAsync()
         {
-          Employees = ( await EmployeeService.GetEmployees());
-           
+            Employees = (await EmployeeService.GetEmployees());
+
+        }
+
+        protected int SelectedEmployeesCount { get; set; }
+
+        protected void EmployeeSelectionChanged(bool isSelected)
+        {
+            if (isSelected)
+            {
+                SelectedEmployeesCount++;
+            }
+            else
+            {
+                SelectedEmployeesCount--;
+            }
         }
     }
 }
